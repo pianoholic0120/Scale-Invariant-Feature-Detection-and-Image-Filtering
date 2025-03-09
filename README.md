@@ -2,6 +2,7 @@
 
 ## File Structure
     |-> cv_hw1
+        |-> hw1.pdf
         |-> report.pdf
         |-> requirements.txt
         |-> part1
