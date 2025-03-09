@@ -27,6 +27,8 @@ def main():
     cost = {}
     JBF = Joint_bilateral_filter(sigma_s, sigma_r)
     bf = JBF.joint_bilateral_filter(img_rgb, img_rgb)
+    bf_file = cv2.cvtColor(bf, cv2.COLOR_BGR2RGB)
+    cv2.imwrite(args.output_path+f'{args.image_path[-5]}_bf_cv2_COLOR_BGR2GRAY.png', bf_file)
     jbf = JBF.joint_bilateral_filter(img_rgb, img_gray)
     # L1 normalization calculation
     cost['cv2.COLOR_BGR2GRAY'] = np.sum(np.abs(bf.astype('int32') - jbf.astype('int32'))) # cast to int32 to avoid overflow when subtraction
